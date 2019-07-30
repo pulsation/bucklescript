@@ -68,11 +68,11 @@ function build(config) {
     cp.execSync(
       "./configure -prefix " +
         prefix +
-        " -no-ocamlbuild  -no-curses -no-graph -no-pthread -no-debugger && make clean",
+        " -no-ocamlbuild  -no-curses -no-graph -no-pthread -no-debugger && gmake clean",
       { cwd: path.join(__dirname, "..", "ocaml"), stdio: [0, 1, 2] }
     );
   }
-  cp.execSync("make -j9 world.opt && make install ", {
+  cp.execSync("gmake -j9 world.opt && gmake install ", {
     cwd: path.join(__dirname, "..", "ocaml"),
     stdio: [0, 1, 2]
   });
